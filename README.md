@@ -1,7 +1,6 @@
 # React Weather App
 
-Shows current weather from IMGW
-Includes searchbar, compares temperatures to average
+Shows current weather from IMGW. Includes searchbar, compares temperatures to average
 
 ### How to run the application:
 
