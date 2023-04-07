@@ -1,38 +1,116 @@
+* {
+  box-sizing: border-box;
+}
+
 .App {
+  background-color: white;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.content {
+  max-width: 1200px;
+  margin: auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.citiesList {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
+}
+.city {
+  flex-basis: 100%;
+  border: 2px solid black;
+}
+
+.caption {
+  display: flex;
+  flex-wrap: wrap;
+  height: 150px;
+}
+
+.searchbar {
+  height: 100%;
+  line-height: 100px;
+  flex-basis: 100%;
+  border: 1px solid black;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.searchbar form label {
+  padding-right: 2px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.info {
+  height: 100%;
+  flex-basis: 100%;
+  border: 1px solid black;
+  display: inline-block;
+}
+
+.above {
+  color: red;
+}
+.below {
+  color: blue;
+}
+.legendItem {
+  display: inline-block;
+  padding: 0 15px;
+}
+.legendSquare {
+  position: relative;
+  top: 1px;
+  height: 12px;
+  width: 12px;
+  margin: 0 5px;
+  display: inline-block;
+}
+.legendSquare.above {
+  background-color: red;
+  border: 0.5px solid black;
+}
+.legendSquare.below {
+  background-color: blue;
+  border: 0.5px solid black;
+}
+
+@media screen and (min-width: 768px) {
+  .city {
+    flex-basis: 50%;
   }
-  to {
-    transform: rotate(360deg);
+  .searchbar {
+    flex-basis: 50%;
+  }
+  .info {
+    flex-basis: 50%;
+  }
+}
+@media screen and (min-width: 992px) {
+  .content {
+    max-width: 960px;
+  }
+  .city {
+    flex-basis: 33.33%;
+  }
+  .searchbar {
+    flex-basis: 33.33%;
+  }
+  .info {
+    flex-basis: 66.66%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .content {
+    max-width: 1140px;
+  }
+  .city {
+    flex-basis: 25%;
+  }
+  .searchbar {
+    flex-basis: 25%;
+  }
+  .info {
+    flex-basis: 75%;
   }
 }
