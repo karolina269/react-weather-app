@@ -1,6 +1,6 @@
 import Searchbar from "./Searchbar";
 import InfoDisplay from "./InfoDisplay";
-import CitiesList from "./CitiesList";
+import Station from "./Station";
 import axios from "axios";
 import { useState, useEffect } from "react";
 
@@ -15,7 +15,6 @@ const Weather = () => {
     const allTempAcc = weatherData.reduce((acc, weatherItem) => {
       return acc + parseInt(weatherItem.temperatura);
     }, 0);
-    console.log(allTempAcc);
     return allTempAcc / weatherData.length;
   };
 
@@ -49,7 +48,11 @@ const Weather = () => {
         <Searchbar search={search} />
         <InfoDisplay averageTemp={averageTemp} />
       </div>
-      <CitiesList averageTemp={averageTemp} filteredWeatherData={filteredWeatherData} />
+      <div className="stationsList">
+        {filteredWeatherData.map((station) => {
+          return <Station station={station} key={station.id_stacji} averageTemp={averageTemp} />;
+        })}
+      </div>
     </section>
   );
 };

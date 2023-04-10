@@ -1,6 +1,13 @@
 # React Weather App
 
-Shows current weather from IMGW. Includes searchbar, compares temperatures to average
+Get current weather information in Poland using axios.
+Language: polish
+
+## Features
+
+- searchbar
+- shows average temperature, compares it to the temperature at each station
+- shows detailed weather information about each station in modal
 
 ### How to run the application:
 

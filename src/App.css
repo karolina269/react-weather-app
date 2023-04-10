@@ -5,18 +5,23 @@
 .App {
   background-color: white;
   text-align: center;
-}
-
-.content {
   max-width: 1200px;
   margin: auto;
 }
 
-.citiesList {
+.App-header {
+  background-color: black;
+  color: white;
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+}
+
+.stationsList {
   display: flex;
   flex-wrap: wrap;
 }
-.city {
+.station {
   flex-basis: 100%;
   border: 2px solid black;
 }
@@ -24,14 +29,14 @@
 .caption {
   display: flex;
   flex-wrap: wrap;
-  height: 150px;
+  background-color: lightgray;
+  border: 2px solid black;
 }
 
 .searchbar {
-  height: 100%;
-  line-height: 100px;
   flex-basis: 100%;
-  border: 1px solid black;
+  padding: 1rem;
+  border-bottom: 1px solid black;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -42,10 +47,8 @@
 }
 
 .info {
-  height: 100%;
   flex-basis: 100%;
-  border: 1px solid black;
-  display: inline-block;
+  padding: 0.5rem;
 }
 
 .above {
@@ -75,36 +78,62 @@
   border: 0.5px solid black;
 }
 
+.modal {
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  text-align: center;
+  background-color: white;
+  border: 1px solid black;
+  height: 16em;
+  width: 18em;
+}
+
+.modal .detailKey {
+  font-weight: 500;
+}
+
 @media screen and (min-width: 768px) {
-  .city {
+  .info {
+    height: 150px;
+    border-left: 1px solid black;
+  }
+  .station {
     flex-basis: 50%;
   }
   .searchbar {
+    height: 150px;
     flex-basis: 50%;
+    border-bottom: none;
+    border-right: 1px solid black;
   }
   .info {
     flex-basis: 50%;
   }
 }
 @media screen and (min-width: 992px) {
-  .content {
+  .App {
     max-width: 960px;
   }
-  .city {
-    flex-basis: 33.33%;
+  .station {
+    flex-basis: calc(100% / 3);
   }
   .searchbar {
-    flex-basis: 33.33%;
+    flex-basis: calc(100% / 3);
   }
   .info {
-    flex-basis: 66.66%;
+    flex-basis: calc(100% / 3 * 2);
   }
 }
 @media screen and (min-width: 1200px) {
-  .content {
+  .App {
     max-width: 1140px;
   }
-  .city {
+  .station {
     flex-basis: 25%;
   }
   .searchbar {
