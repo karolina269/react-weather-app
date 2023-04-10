@@ -19,7 +19,7 @@ const Details = (props) => {
       </p>
       <p>
         <span className="detailKey">Kierunek wiatru: </span>
-        {props.details.kierunek_wiatru} &#186;C
+        {props.details.kierunek_wiatru} &#186;
       </p>
       <button onClick={props.onClose}>Close</button>
     </div>
