@@ -1,5 +1,4 @@
 const Details = (props) => {
-  console.log(props);
   return (
     <div className="modal">
       <p>
