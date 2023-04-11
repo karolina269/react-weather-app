@@ -9,13 +9,35 @@ const Weather = () => {
 
   const [filteredWeatherData, setFilteredWeatherData] = useState([]);
 
-  const [averageTemp, setAverageTemp] = useState();
+  const [average, setAverage] = useState({});
 
-  const calcAverageTemp = () => {
-    const allTempAcc = weatherData.reduce((acc, weatherItem) => {
-      return acc + parseInt(weatherItem.temperatura);
-    }, 0);
-    return allTempAcc / weatherData.length;
+  const calcAverage = () => {
+    let temperatureAcc = 0;
+    let pressureAcc = 0;
+    let pressureNull = 0;
+    let rainfallAcc = 0;
+    let humidityAcc = 0;
+    let windspeedAcc = 0;
+
+    for (const weatherItem of weatherData) {
+      temperatureAcc += parseInt(weatherItem.temperatura);
+      if (weatherItem.cisnienie != null) {
+        pressureAcc += parseInt(weatherItem.cisnienie);
+      } else {
+        pressureNull++;
+      }
+      rainfallAcc += parseInt(weatherItem.suma_opadu);
+      humidityAcc += parseInt(weatherItem.wilgotnosc_wzgledna);
+      windspeedAcc += parseInt(weatherItem.predkosc_wiatru);
+    }
+
+    return {
+      temperature: temperatureAcc / weatherData.length,
+      pressure: pressureAcc / (weatherData.length - pressureNull),
+      rainfall: rainfallAcc / weatherData.length,
+      humidity: humidityAcc / weatherData.length,
+      windspeed: windspeedAcc / weatherData.length,
+    };
   };
 
   const search = (value) => {
@@ -39,18 +61,18 @@ const Weather = () => {
   }, []);
 
   useEffect(() => {
-    setAverageTemp(calcAverageTemp());
+    setAverage(calcAverage());
   }, [weatherData]);
 
   return (
     <section className="content">
       <div className="caption">
         <Searchbar search={search} />
-        <InfoDisplay averageTemp={averageTemp} />
+        <InfoDisplay average={average} />
       </div>
       <div className="stationsList">
         {filteredWeatherData.map((station) => {
-          return <Station station={station} key={station.id_stacji} averageTemp={averageTemp} />;
+          return <Station station={station} key={station.id_stacji} averageTemp={average.temperature} />;
         })}
       </div>
     </section>

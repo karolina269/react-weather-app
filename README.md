@@ -6,7 +6,8 @@ Language: polish
 ## Features
 
 - searchbar
-- shows average temperature, compares it to the temperature at each station
+- shows average weather parameters
+- compares average temperature to the temperature at each station
 - shows detailed weather information about each station in modal
 
 ### How to run the application:

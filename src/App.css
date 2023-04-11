@@ -50,6 +50,13 @@
   flex-basis: 100%;
   padding: 0.5rem;
 }
+.info .avg {
+  font-weight: 500;
+}
+
+.info select {
+  margin-left: 5px;
+}
 
 .above {
   color: red;
@@ -99,14 +106,12 @@
 
 @media screen and (min-width: 768px) {
   .info {
-    height: 150px;
     border-left: 1px solid black;
   }
   .station {
     flex-basis: 50%;
   }
   .searchbar {
-    height: 150px;
     flex-basis: 50%;
     border-bottom: none;
     border-right: 1px solid black;
