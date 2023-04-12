@@ -16,7 +16,7 @@ Language: polish
 # clone the git repo
 git clone https://github.com/karolina269/react-weather-app.git
 
-cd react-users-list/
+cd react-weather-app/
 npm install
 npm start
 
