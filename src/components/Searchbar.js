@@ -3,7 +3,7 @@ const Searchbar = (props) => {
     <div className="searchbar">
       <form>
         <label htmlFor="searchbar">Szukaj:</label>
-        <input id="searchbar" type="text" onChange={(e) => props.search(e.target.value)} />
+        <input id="searchbar" type="text" onChange={(e) => props.searchStation(e.target.value)} />
       </form>
     </div>
   );

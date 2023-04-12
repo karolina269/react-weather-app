@@ -1,16 +1,17 @@
 import { useState } from "react";
 
 const InfoDisplay = (props) => {
-  const [averageValue, setAverageValue] = useState();
+  const [averageValue, setAverageValue] = useState(null);
 
   const updateAverageValue = (e) => {
     const parameter = e.target.value;
     if (parameter === "choose") {
-      setAverageValue("");
+      setAverageValue(null);
       return;
     }
     setAverageValue(Math.round(props.average[parameter] * 10) / 10);
   };
+
   return (
     <div className="info">
       <p>
